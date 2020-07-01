@@ -6,32 +6,42 @@ const orm = {
 
     selectAll: function(cb) {
         let s = "SELECT * FROM" + tableName;
-        connection.query(s, function (err, result){
+        cb = function () {
+            connection.query(s, function (err, result){
             if (err) throw err;
-            console.log(result);
-            cb(result);
+            return result;         
         });
+
+        }
+        return cb;
     },
     
     
     insertOne: function(insert, cb) {
         let s = "INSERT INTO " + tableName + " (text, complete) VALUES (?,?)";
         insert.complete = insert.complete || 0;
+        cb = function () {
         connection.query(s, [insert.text, insert.complete], function(err, result) {
             if (err) throw err;
-            console.log(result);
-            cb(result);
+            return result;
         });
+
+        }
+        return cb;
+
     },
 
     updateOne: function(insert, cb) {
         let s = "UPDATE " + tableName + " SET text=? WHERE id=?";
-
-        connection.query(s, [
+        cb = function () {
+           connection.query(s, [
             insert.text, insert.id
         ], function(err, result) {
             cb(result)
-        });
+        }); 
+        }
+        return cb;
+        
     }
 
 

@@ -1,23 +1,23 @@
 const express = require("express");
 const router = express.Router();
-const mainFunctions = require("../models/burger.js");
+const functionMain = require("../models/burger.js");
 
 router.get("/", function (req, res) {
-    mainFunctions.selectAll(function (input) {
+    functionMain.selectAll(function (input) {
         let result = {
-            mainFunctions: input
+            functionMain: input
         };
         res.render("index", result);
     });
 });
 
 router.put("/burgers", function (req, res) {
-    mainFunctions.updateOne([], function (input) {
+    functionMain.updateOne([], function (input) {
     });
 });
 
 router.post("/burgers", function (req, res) {
-    mainFunctions.insertOne([], function (input) {
+    functionMain.insertOne([], function (input) {
     });
 });
 

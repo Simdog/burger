@@ -23,8 +23,6 @@ const connection = mysql.createConnection(source.localhost);
 
 
 
-
-
 connection.connect(function(err) {
     if (err) {
       console.error("error connecting: " + err.stack);
