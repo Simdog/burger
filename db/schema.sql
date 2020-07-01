@@ -10,4 +10,3 @@ burger_name VARCHAR(140) NOT NULL,
 devoured BOOLEAN NOT NULL DEFAULT FALSE
 );
 
-SELECT * FROM burgers;

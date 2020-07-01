@@ -8,14 +8,14 @@ const burger = {
         })
     },
 
-    insertOne: function(col1, col2, val1, val2, cb) {
-        orm.insertOne("burgers", col1, col2, val1, val2, function (res) {
+    insertOne: function(cb) {
+        orm.insertOne("burgers", function (res) {
             cb(res);
         })
     },
 
-    updateOne: function(upCol, upVal, condCol, condVal, cb) {
-        orm.updateOne("burgers", upCol, upVal, condCol, condVal, function(res){
+    updateOne: function(id, cb) {
+        orm.updateOne("burgers", "devoured", false, id, function(res){
             cb(res);
         })
     }
