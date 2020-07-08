@@ -42,7 +42,8 @@ var connection = mysql.createConnection({
         user: "root",
         password:"opeyemi",
         database: "burger_db"
-});
+},
+);
 
 
 connection.connect(function (err) {
