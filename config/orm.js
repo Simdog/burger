@@ -1,50 +1,26 @@
 const connection = require("./connection.js");
 
-const tableName = "burgers";
+let burgerOrm = {
+	all: function(tableInput, cb){
+		connection.query("SELECT * FROM " + tableInput + ";", function (err, result){
+			if(err)	throw err;
+			cb(result);
+			})
+		},
 
-const orm = {
+	update: function(tableInput, condition, cb){
+			connection.query("UPDATE " + tableInput + " SET devoured=true WHERE id = "+condition+";", function(err, result){
+				if(err) throw err;
+				cb(result);
+			})
+		},
+		
+	create: function(tableInput,val,cb){
+		connection.query("INSERT INTO " + tableInput+ "(burger_name) VALUES ('"+val+"');", function(err,result){
+			if (err)throw err;
+			cb(result);
+			})
+		}
+	}
 
-    selectAll: function(cb) {
-        let s = "SELECT * FROM" + tableName;
-        cb = function () {
-            connection.query(s, function (err, result){
-            if (err) throw err;
-            return result;         
-        });
-
-        }
-        return cb;
-    },
-    
-    
-    insertOne: function(insert, cb) {
-        let s = "INSERT INTO " + tableName + " (text, complete) VALUES (?,?)";
-        insert.complete = insert.complete || 0;
-        cb = function () {
-        connection.query(s, [insert.text, insert.complete], function(err, result) {
-            if (err) throw err;
-            return result;
-        });
-
-        }
-        return cb;
-
-    },
-
-    updateOne: function(insert, cb) {
-        let s = "UPDATE " + tableName + " SET text=? WHERE id=?";
-        cb = function () {
-           connection.query(s, [
-            insert.text, insert.id
-        ], function(err, result) {
-            cb(result)
-        }); 
-        }
-        return cb;
-        
-    }
-
-
-};
-
-module.exports = orm;
+module.exports = burgerOrm;
