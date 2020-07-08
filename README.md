@@ -9,4 +9,4 @@ Node, Express, and MySQL Database were used to create this app. The user is able
 This app is deployed live on Heroku here: https://simeon-burger.herokuapp.com/
 
 ## Screenshots
-![program running](assets/img/ssburger.PNG)
+![program running](C:\Users\simeo\OneDrive\Desktop\CODING BOOTCAMP\Homework\burger\public\assets\img\ssburger.PNG)
