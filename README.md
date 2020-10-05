@@ -1,10 +1,26 @@
 # Eat-Da-Burger
 
-## Description
+# Node Express Handlebars
 
-Node, Express, and MySQL Database were used to create this app. The user is able to create burgers of their choice and then select that they want to devour it and it will be placed on a different side of the screen
+### Overview
 
-## Deployment
+This app will allow the user to create a burger logger with MySQL, Node, Express, Handlebars and a homemade ORM (yum!). Be sure to follow the MVC design pattern; use Node and MySQL to query and route data in your app, and Handlebars to generate your HTML.
+
+### Concepts Used 
+
+* Model-View-Controller (MVC)
+* Object Relational Mapping (ORM)
+* Express.js
+* HTTP Requests (GET, POST,PUT,DELETE)
+* Routes and static content
+* Handlebars engine integration
+* Node.js
+* Backend API calls
+* Handlebars Templates and Layouts
+* MySQL
+
+### Deployment 
+
 
 This app is deployed live on Heroku here: https://simeon-burger.herokuapp.com/
 
